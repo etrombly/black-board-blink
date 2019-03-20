@@ -19,6 +19,9 @@ features = ["stm32f407", "rt"]
 version = "0.3.0"
 features = ["stm32f407"]
 
+[dependencies.max7219]
+git = "https://github.com/etrombly/max7219"
+
 # this lets you use `cargo fix`!
 [[bin]]
 name = "black-board-blink"
