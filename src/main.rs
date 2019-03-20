@@ -26,13 +26,16 @@ fn main() -> ! {
     
     let core = stm32f407::CorePeripherals::take().unwrap();
     let gpioa = peripherals.GPIOA.split();
-    let mut led = gpioa.pa6.into_push_pull_output();
+    let mut led1 = gpioa.pa6.into_push_pull_output();
+    let mut led2 = gpioa.pa7.into_push_pull_output();
     let mut delay = Delay::new(core.SYST, clocks);
 
     loop {
-        led.set_low();
-        delay.delay_ms(100_u8);
-        led.set_high();
-        delay.delay_ms(100_u8);
+        led1.set_low();
+        led2.set_high();
+        delay.delay_ms(254_u8);
+        led1.set_high();
+        led2.set_low();
+        delay.delay_ms(254_u8);
     }
 }
